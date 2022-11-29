@@ -9,11 +9,6 @@ const { phoneNumberFormatter } = require('./helpers/formatter');
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
 const mime = require('mime-types');
-var http = require("http");
-
-// setInterval(function() {
-//     http.get("https://whatsapp-api-gyss.herokuapp.com/");
-// }, 2400000); // every 40 minutes (2400000)
 
 const port = process.env.PORT || 8000;
 
@@ -164,20 +159,23 @@ client.on("message", (message) => {
 if(message.type === 'list_response'){
   message.reply(`You've selected ${message.body}`);
 }
-
 if(message.body === 'Hi') {
-client.sendMessage(message.from, `Welcome ${message._data.notifyName}, thank you for making it GYSS Deliveries. Please indicate your choice by selecting the number below that correspond with your interest:
+client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome To GYSS Deliveries
+    
+    How can I help? Send corresponding num for response.
     `);
    // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
-    client.sendMessage(
-      message.from, `1) I wish to register with GYSS Deliveries\n2) About GYSS Deliveries`);
+    client.sendMessage(message.from, `
+    1) Download Android GYSS APP 
+    2) Visit Our Website 
+    3) Learn more about GYSS`);
     
 }
 
 if(message.body === 'Hello') {
 client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome To GYSS Deliveries
     
-    How can I help? Send corresponding number for response.
+    How can I help? Send corresponding num for response.
     `);
    // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
     client.sendMessage(message.from, `
@@ -201,49 +199,12 @@ client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome To GYS
 }
 
 if(message.body === '1' ) {
-
-  client.sendMessage(message.from, `3) I am using an Android device.\n4) I am NOT using an Android device.
-  `);
-
-    // client.sendMessage(message.from,
-    //    'Download GYSS for android at: https://play.google.com/apps/internaltest/4698419695043320813');        
+    client.sendMessage(message.from, 'Download GYSS for android at: https://play.google.com/apps/internaltest/4698419695043320813');        
 }
 
 if(message.body === '2' ) {
-    client.sendMessage(message.from, 'GYSS Deliveries is a delivery business which covers a wide range of services, including and not limited to Restaurants, Hardware, Fresh Fruits & Vegetables, Fresh Meats and Haberdashery. Visit our website at: https://gyss-deliveries.vercel.app/');        
+    client.sendMessage(message.from, 'Visit our website at: https://gyss-deliveries.vercel.app/');        
 }
-
-
-if(message.body === '4' ) {
-client.sendMessage(message.from, 'Visit us at: https://gyss-deliveries.vercel.app/');        
-}
-
-
-if(message.body === '3' ) {
-
-client.sendMessage(message.from, `Select the option that best describe your interest:
-`);
-
-client.sendMessage(message.from, `A) I am a Subscriber\nB) I am a Vendor\nC) I am a Delivery Agent
-`);
-
-}
-
-if(message.body === 'A' ) {
-  client.sendMessage(message.from,
-     'Download GYSS for android at: https://play.google.com/apps/internaltest/4698419695043320813');     
-};
-
-if(message.body === 'B' ) {
-client.sendMessage(message.from,
-   'Download GYSS for vendors at: https://play.google.com/apps/internaltest/4698419695043320813');     
-};
-
-if(message.body === 'C' ) {
-client.sendMessage(message.from,
- 'Download GYSS for delivery agents at: https://play.google.com/apps/internaltest/4698419695043320813');     
-};
-
 });
 
 
