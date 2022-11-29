@@ -9,6 +9,11 @@ const { phoneNumberFormatter } = require('./helpers/formatter');
 const fileUpload = require('express-fileupload');
 const axios = require('axios');
 const mime = require('mime-types');
+var http = require("http");
+
+// setInterval(function() {
+//     http.get("https://whatsapp-api-gyss.herokuapp.com/");
+// }, 2400000); // every 40 minutes (2400000)
 
 const port = process.env.PORT || 8000;
 
