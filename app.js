@@ -156,56 +156,50 @@ io.on('connection', function(socket) {
 
 client.on("message", (message) => {
   console.log(message)
-if(message.type === 'list_response'){
-  message.reply(`You've selected ${message.body}`);
-}
-if(message.body === 'Hi') {
-client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome To GYSS Deliveries
-    
-    How can I help? Send corresponding num for response.
-    `);
-   // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
-    client.sendMessage(message.from, `
-    1) Download Android GYSS APP 
-    2) Visit Our Website 
-    3) Learn more about GYSS`);
-    
-}
+// if(message.type === 'list_response'){
+//   message.reply(`You've selected ${message.body}`);
+// }
+// if(message.body === 'Hi' || message.body === 'Hello' || message.body === 'Hey') {
+// client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome to Autoway Parts & Supplies Ltd where we offer a wide range of Automotive sales & services in a professional environment.
 
-if(message.body === 'Hello') {
-client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome To GYSS Deliveries
+// Please select the # that matches your requirement:
+//     `);
+//    // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
+//     client.sendMessage(message.from, `
+//     1) Not uet Registered 
+//     2) Already Registered`);
     
-    How can I help? Send corresponding num for response.
-    `);
-   // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
-    client.sendMessage(message.from, `
-    1) Download Android GYSS APP 
-    2) Visit Our Website 
-    3) Learn more about GYSS`);
-    
-}
-
-if(message.body === 'Hey') {
-client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome To GYSS Deliveries
-    
-    How can I help? Send corresponding num for response.
-    `);
-   // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
-    client.sendMessage(message.from, `
-    1) Download Android GYSS APP 
-    2) Visit Our Website 
-    3) Learn more about GYSS`);
-    
-}
+//}
 
 if(message.body === '1' ) {
-    client.sendMessage(message.from, 'Download GYSS for android at: https://play.google.com/apps/internaltest/4698419695043320813');        
+    client.sendMessage(message.from, 'Please register with us at https://google.com');        
+} 
+else if(message.body === '2' ) {
+  client.sendMessage(message.from, 
+    `Please select the # which matches your requirement:
+
+3) New Parts
+4) Used Parts
+5) Alignment / Wheel Balancing
+6) General automotive servicing`
+    );      
+} 
+
+else if(message.body === '3' || message.body === '4' || message.body === '5' || message.body === '6') {
+  client.sendMessage(message.from, 'Thank you for your request, a customer service rep will be contacting you momentarily');           
+} else {
+  client.sendMessage(message.from, `Hi ${message._data.notifyName}, Welcome to Autoway Parts & Supplies Ltd where we offer a wide range of Automotive sales & services in a professional environment.
+
+Please select the # that matches your requirement:
+      `);
+     // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
+      client.sendMessage(message.from, `
+1) Not uet Registered 
+2) Already Registered`);
 }
 
-if(message.body === '2' ) {
-    client.sendMessage(message.from, 'Visit our website at: https://gyss-deliveries.vercel.app/');        
-}
 });
+
 
 
 const checkRegisteredNumber = async function(number) {
