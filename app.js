@@ -1,4 +1,4 @@
-const { Client, MessageMedia, LocalAuth } = require('whatsapp-web.js');
+const { Client, MessageMedia, LocalAuth } = require('./whatsapp-web.js');
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const socketIO = require('socket.io');
@@ -193,8 +193,8 @@ else if(message.body === '3' || message.body === '4' || message.body === '5' || 
 Please select the # that matches your requirement:
       `);
      // client.sendMessage(message.from, `How can I help? Send corresponding num for response.`);
-      client.sendMessage(message.from, `
-1) Not uet Registered 
+      client.sendMessage(message.from, 
+`1) Not uet Registered 
 2) Already Registered`);
 }
 
